@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     title: "My App",
     home: Scaffold(
       appBar: AppBar(
-        title: Text("Hello Flutter"),
+        title: const Text("Hello Flutter"),
       ),
-      body: Text("Hello Dart"),
+      body: const Center(child: Text("Hello Dart"),),
     ),
     theme: ThemeData(primarySwatch: Colors.blueGrey),
   );
