@@ -25,6 +25,40 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> data = [];
+    data.add(Text(
+      "คลิกเพื่อเพิ่มจำนวนตัวเลข",
+      style: TextStyle(fontSize: 24, color: Colors.red),
+    ));
+    data.add(Text(
+      number.toString(),
+      style: TextStyle(fontSize: 60),
+    ));
+    data.add(Image(
+      image: NetworkImage(
+          "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"),
+    ));
+    data.add(TextButton(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+        overlayColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+            if (states.contains(MaterialState.hovered))
+              return Colors.blue.withOpacity(0.04);
+            if (states.contains(MaterialState.focused) ||
+                states.contains(MaterialState.pressed))
+              return Colors.blue.withOpacity(0.12);
+            return null; // Defer to the widget's default.
+          },
+        ),
+      ),
+      onPressed: clearAll,
+      child: Text('ล้างข้อมูล'),
+    ));
+    for (var i = 0; i <= number; i++) {
+      data.add(Text("รายการที่ ${i+1}"));
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("ToDo List"),
@@ -32,20 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "คลิกเพื่อเพิ่มจำนวนตัวเลข",
-              style: TextStyle(fontSize: 24, color: Colors.red),
-            ),
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 60),
-            ),
-            Image(
-              image: NetworkImage(
-                  "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"),
-            ),
-          ],
+          children: data,
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -58,6 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void addNumber() {
     setState(() {
       number++;
+    });
+  }
+
+  void clearAll() {
+    setState(() {
+      number = 0;
     });
   }
 }
