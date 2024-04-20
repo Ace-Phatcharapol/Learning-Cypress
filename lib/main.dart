@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My App",
-      home: Scaffold(
+      home: MyHomePage(),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
-          title: const Text("Hello Flutter"),
+          title: const Text("ToDo List"),
         ),
-        body: Center(
+        body: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 "Hello Dart",
                 style: TextStyle(fontSize: 24, color: Colors.red),
               ),
@@ -30,8 +44,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
-    );
+      );
   }
 }
