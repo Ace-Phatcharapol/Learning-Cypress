@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'FoodMenu.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +22,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int number = 0; // สร้าง State
+  //กลุ่มข้อมูล
+  List<FoodMenu> menu = [
+    FoodMenu("กะเพราหมู", 100),
+    FoodMenu("ข้าวผัด", 150),
+    FoodMenu("หมึกชุบแป้งทอด", 200),
+    FoodMenu("ไก่ย่าง", 250),
+    FoodMenu("ปลาเผา", 300),
+  ];
 
+  //การแสดงผล
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text("ToDo List"),
         ),
         body: ListView.builder(
-            itemCount: 15,
+            itemCount: menu.length,
             itemBuilder: (BuildContext context, int index) {
-              return ListTile(title: Text("เมนูที่่ ${index+1}"));
+              FoodMenu food = menu[index];
+              return ListTile(
+                title: Text(food.name,style: TextStyle(fontSize: 24,fontWeight: FontWeight.w700),),
+                subtitle: Text("ราคา " + "${food.price}" + " บาท"),
+              );
             }));
   }
 }
