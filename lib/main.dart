@@ -44,8 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
               FoodMenu food = menu[index];
               return ListTile(
                 leading: Image.asset(food.img),
-                title: Text(food.name,style: TextStyle(fontSize: 24,fontWeight: FontWeight.w700),),
+                title: Text(
+                  food.name,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                ),
                 subtitle: Text("ราคา " + "${food.price}" + " บาท"),
+                onTap: () {
+                  print("คุณเลือกเมนูอาหารชื่อว่า " + food.name);
+                },
               );
             }));
   }
