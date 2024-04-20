@@ -40,7 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> getData(int count) {
     List<Widget> data = [];
     for (var i = 0; i < count; i++) {
-      data.add(Text("ครั้งที่ ${i + 1}"));
+      data.add(ListTile(
+        title: Text("รายการที่ ${i + 1}",style: TextStyle(fontSize: 24),),
+        subtitle: Text("รายละเอียดที่ ${i + 1}"),
+      ));
     }
     return data;
   }
