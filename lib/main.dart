@@ -9,6 +9,7 @@ void main() {
       ),
       body: Text("Hello Dart"),
     ),
+    theme: ThemeData(primarySwatch: Colors.blueGrey),
   );
   runApp(app);
 }
