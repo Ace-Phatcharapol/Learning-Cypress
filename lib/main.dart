@@ -27,8 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<Widget> data = [];
     data.add(Text(
-      "คลิกเพื่อเพิ่มจำนวนตัวเลข",
-      style: TextStyle(fontSize: 24, color: Colors.red),
+      "คลิกเพื่อเพิ่มจำนวนที่ต้องการลูบหัวแมว",
+      style: TextStyle(fontSize: 18, color: Colors.orange, fontWeight: FontWeight.w700),
     ));
     data.add(Text(
       number.toString(),
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Text('ล้างข้อมูล'),
     ));
     for (var i = 0; i <= number; i++) {
-      data.add(Text("รายการที่ ${i+1}"));
+      data.add(Text("ครั้งที่ ${i+1}"));
     }
 
     return Scaffold(
