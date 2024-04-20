@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,20 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Hello Flutter"),
         ),
-        body: const Center(
-          child: Text("Hello Dart",
-              style: TextStyle(fontSize: 24, color: Colors.red)),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Hello Dart",
+                style: TextStyle(fontSize: 24, color: Colors.red),
+              ),
+              Image(
+                image: NetworkImage(
+                    "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"),
+              ),
+            ],
+          ),
         ),
       ),
       theme: ThemeData(primarySwatch: Colors.blueGrey),
