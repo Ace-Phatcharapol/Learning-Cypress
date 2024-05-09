@@ -132,6 +132,11 @@ class _HomeState extends State<Home> {
 
   void _deleteToDoItem(String id) {
     setState(() {
+      // ตรวจสอบว่า id อยู่ในรายการที่ถูกค้นหาหรือไม่
+      if (_foundToDo.any((item) => item.id == id)) {
+        _foundToDo.removeWhere((item) => item.id == id);
+      }
+      // ลบรายการที่ต้องการในรายการทั้งหมด
       todoList.removeWhere((item) => item.id == id);
     });
   }
