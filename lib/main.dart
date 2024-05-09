@@ -1,65 +1,23 @@
 import 'package:flutter/material.dart';
-import 'FoodMenu.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:myflutter/screens/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
-      title: "My App",
-      home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      debugShowCheckedModeBanner: false,
+      title: 'ToDo App',
+      home: Home(),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  //กลุ่มข้อมูล
-  List<FoodMenu> menu = [
-    FoodMenu("กะเพราหมู", 100, "assets/images/pic1.jpg"),
-    FoodMenu("ข้าวผัด", 150, "assets/images/pic2.jpg"),
-    FoodMenu("หมึกชุบแป้งทอด", 200, "assets/images/pic3.jpg"),
-    FoodMenu("ไก่ย่าง", 250, "assets/images/pic4.jpg"),
-    FoodMenu("ปลาเผา", 300, "assets/images/pic5.jpg"),
-  ];
-
-  //การแสดงผล
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("ToDo List"),
-        ),
-        body: ListView.builder(
-            itemCount: menu.length,
-            itemBuilder: (BuildContext context, int index) {
-              FoodMenu food = menu[index];
-              return ListTile(
-                leading: SizedBox(
-                  width: 100, // กำหนดความกว้างของรูปภาพ
-                  height: 100, // กำหนดความสูงของรูปภาพ
-                  child: Image.asset(
-                    food.img,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                title: Text(
-                  food.name,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-                subtitle: Text("ราคา " + "${food.price}" + " บาท"),
-                onTap: () {
-                  print("คุณเลือกเมนูอาหารชื่อว่า " + food.name);
-                },
-              );
-            }));
   }
 }
