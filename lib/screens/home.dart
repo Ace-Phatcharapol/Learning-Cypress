@@ -126,7 +126,8 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _addToDoItem(String toDo) {
+void _addToDoItem(String toDo) {
+  if (toDo.isNotEmpty) { // ตรวจสอบว่าค่า toDo ไม่เป็นค่าว่าง
     setState(() {
       todoList.add(ToDo(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -135,6 +136,7 @@ class _HomeState extends State<Home> {
     });
     _todoController.clear();
   }
+}
 
   Widget searchBox() {
     return Container(
