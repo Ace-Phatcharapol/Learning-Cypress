@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>ToDo list App</h1>
 
 <h2>How to install</h2>
@@ -20,3 +21,6 @@ Download Link: https://developer.android.com/studio
 <strong style="font-size: 20px !important;">Example searching screen</strong><br>
 
 ![Example screen](Example%20Search%20ToDo%20App.png)
+=======
+# Learning-Cypress
+>>>>>>> 694f48f9249bb61b7490ec721d1561ee2a2088ca
