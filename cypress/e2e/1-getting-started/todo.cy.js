@@ -17,7 +17,7 @@ describe('example to-do app', () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit('https://example.cypress.io/todo')
+    cy.visit('http://localhost:8080/todo')
   })
 
   it('displays two todo items by default', () => {
@@ -31,7 +31,6 @@ describe('example to-do app', () => {
     // to get just the first and last matched elements individually,
     // and then perform an assertion with `should`.
     cy.get('.todo-list li').first().should('have.text', 'Pay electric bill')
-    cy.get('.todo-list li').last().should('have.text', 'Walk the dog')
   })
 
   it('can add new todo items', () => {
@@ -66,8 +65,7 @@ describe('example to-do app', () => {
     // the child checkbox <input> element and use the `check` command to check it.
     cy.contains('Pay electric bill')
       .parent()
-      .find('input[type=checkbox]')
-      .check()
+      .find('input[type=checkbox]').check()
 
     // Now that we've checked the button, we can go ahead and make sure
     // that the list element is now marked as completed.

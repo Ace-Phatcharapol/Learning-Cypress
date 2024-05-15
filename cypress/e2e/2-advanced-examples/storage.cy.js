@@ -2,7 +2,7 @@
 
 context('Local Storage / Session Storage', () => {
   beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/storage')
+    cy.visit('http://localhost:8080/commands/storage')
   })
   // Although localStorage is automatically cleared
   // in between tests to maintain a clean state
@@ -63,7 +63,7 @@ context('Local Storage / Session Storage', () => {
     cy.getAllLocalStorage().should((storageMap) => {
       expect(storageMap).to.deep.equal({
         // other origins will also be present if localStorage is set on them
-        'https://example.cypress.io': {
+        'http://localhost:8080': {
           'prop1': 'red',
           'prop2': 'blue',
           'prop3': 'magenta',
@@ -93,7 +93,7 @@ context('Local Storage / Session Storage', () => {
     cy.getAllSessionStorage().should((storageMap) => {
       expect(storageMap).to.deep.equal({
         // other origins will also be present if sessionStorage is set on them
-        'https://example.cypress.io': {
+        'http://localhost:8080': {
           'prop4': 'cyan',
           'prop5': 'yellow',
           'prop6': 'black',

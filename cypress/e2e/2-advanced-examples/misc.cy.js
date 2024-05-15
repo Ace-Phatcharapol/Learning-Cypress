@@ -2,7 +2,7 @@
 
 context('Misc', () => {
   beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/misc')
+    cy.visit('http://localhost:8080/commands/misc')
   })
 
   it('cy.exec() - execute a system command', () => {

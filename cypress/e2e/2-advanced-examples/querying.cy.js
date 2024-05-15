@@ -2,7 +2,7 @@
 
 context('Querying', () => {
   beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/querying')
+    cy.visit('http://localhost:8080/commands/querying')
   })
 
   // The most commonly used query is 'cy.get()', you can

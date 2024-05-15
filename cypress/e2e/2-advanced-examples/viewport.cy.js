@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
+/* eslint-disable cypress/no-unnecessary-waiting */
+
 context('Viewport', () => {
   beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/viewport')
+    cy.visit('http://localhost:8080/commands/viewport')
   })
 
   it('cy.viewport() - set the viewport size and dimension', () => {
